@@ -1,0 +1,11 @@
+.DS_Store
+.env
+node_modules/
+bower_components/
+local/cache/*
+local/storage/*
+local/temp/*
+installer.php
+
+# Ignore users, make one by php please make:user
+site/users
