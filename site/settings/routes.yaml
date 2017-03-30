@@ -5,6 +5,8 @@ collections:
 taxonomies:
   tags: '/blog/tags/{slug}'
   categories: '/blog/categories/{slug}'
+  season: 'seasons/{slug}'
+  occupations: 'occupations/{slug}'
 routes:
   /blog/tags: blog/taxonomies
   /search: search
