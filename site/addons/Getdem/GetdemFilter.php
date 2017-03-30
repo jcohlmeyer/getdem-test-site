@@ -28,7 +28,10 @@ class GetdemFilter extends Filter
             $return_array = [];
 
             // if nothing is passed then no need to filter - so return true for all entries
-            // This is cool!
+            // This does not work because it is counting how many params the tag passes in
+            // We need to count how many of the defined params are actually defined, or check if any are defined
+            // It is more related to: $value = Request::get( $param, false );
+            // dd(count($params));
             if( ! count($params) )
             {
             	return true;

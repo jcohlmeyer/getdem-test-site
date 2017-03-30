@@ -20,5 +20,9 @@
 				{{ date format="M j, Y" }}
 			{{ /if }}
 		</div>
+
+		<p><strong>Occupations:</strong> {{ occupations | ampersand_list }}</p>
+		<p><strong>Season:</strong> {{ season | ampersand_list }}</p>
+		<p><strong>Tags:</strong> {{ tags | ampersand_list }}</p>
 	</a>
 </div>
