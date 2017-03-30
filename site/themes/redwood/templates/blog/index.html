@@ -47,7 +47,7 @@
 				<label for="match" class="form-label">Match</label>
 				<select id="match" name="match" class="form-control">
 					<option value="any">Any</option>
-					<option value="all">All</option>
+					<option value="all" {{ if get:match == 'all' }}selected{{ /if }}>All</option>
 				</select>
 			</div>
 		</div>
