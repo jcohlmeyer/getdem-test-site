@@ -5,8 +5,62 @@
 		<h2>{{ content }}</h2>
 	</header>
 
+	<form class="filters row">
+		<div class="col-xs-12 col-sm-3">
+			<div class="form-group">
+				<label for="occupations" class="form-label">Occupations</label>
+				<select id="occupations" name="occupations" class="form-control">
+					<option value="">Please Select</option>
+					{{ taxonomy:occupations }}
+						<option value="{{ slug }}" {{ if slug == get:occupations }}selected{{ /if }}>{{ title }}</option>
+					{{ /taxonomy:occupations }}
+				</select>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-3">
+			<div class="form-group">
+				<label for="season" class="form-label">Season</label>
+				<select id="season" name="season" class="form-control">
+					<option value="">Please Select</option>
+					{{ taxonomy:season }}
+						<option value="{{ slug }}" {{ if slug == get:season }}selected{{ /if }}>{{ title }}</option>
+					{{ /taxonomy:season }}
+				</select>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-3">
+			<div class="form-group">
+				<label for="tags" class="form-label">Tags</label>
+				<select id="tags" name="tags" class="form-control">
+					<option value="">Please Select</option>
+					{{ taxonomy:tags }}
+						<option value="{{ slug }}" {{ if slug == get:tags }}selected{{ /if }}>{{ title }}</option>
+					{{ /taxonomy:tags }}
+				</select>
+			</div>
+		</div>
+
+		<div class="col-xs-12 col-sm-3">
+			<div class="form-group">
+				<label for="match" class="form-label">Match</label>
+				<select id="match" name="match" class="form-control">
+					<option value="any">Any</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="col-xs-12">
+			<div class="form-group">
+				<input type="submit" value="Search" class="btn btn-primary btn-block">
+			</div>
+		</div>
+	</form>
+
 	<article class="list">
-		{{ collection:blog paginate="true" as="posts" limit="4" }}
+		{{ collection:blog as="posts" filter="getdem" params="occupations|season|tags" match="{get:match}" }}
 			{{ posts }}
 				{{ partial:block }}
 			{{ /posts }}
